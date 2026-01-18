@@ -1,0 +1,90 @@
+/* IBM Carbon Gray 100 Dark Theme */
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+  border: none;
+  text-shadow: none;
+  box-shadow: none;
+  border-radius: 0; /* Carbon Rule: Hard edges only */
+  font-weight: 400;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: #161616; /* Gray 100 */
+  color: #f4f4f4;           /* Gray 10 */
+  border-bottom: 1px solid #393939; /* Gray 80 Separator */
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+/* Left Side: Workspaces & Taskbar */
+#workspaces button, #taskbar button {
+  padding: 0 16px;
+  color: #c6c6c6; 
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.11s cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+#workspaces button:hover, #taskbar button:hover {
+  background-color: #393939; 
+  color: #ffffff;
+}
+
+#workspaces button.active, #taskbar button.active {
+  background-color: #262626; 
+  color: #ffffff;
+  border-bottom: 2px solid #0f62fe; /* IBM Blue 60 */
+}
+
+/* Right Side: Grid Separation Logic */
+.modules-right > widget > label,
+.modules-right > widget > box {
+  border-left: 1px solid #393939;
+  padding: 0 14px;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* Remove first separator on the right */
+.modules-right > widget:first-child > label,
+.modules-right > widget:first-child > box {
+  border-left: none;
+}
+
+/* Module Specific Colors */
+#clock {
+  font-weight: 600;
+}
+
+#pulseaudio.muted {
+  color: #6f6f6f; /* Carbon Gray 50 */
+}
+
+#bluetooth {
+  color: #0f62fe; /* Blue 60 */
+}
+
+#bluetooth.connected {
+  color: #f4f4f4;
+}
+
+#battery.charging, #battery.plugged {
+  color: #24a148; /* Green 50 */
+}
+
+#battery.warning:not(.charging) {
+  color: #ff832b; /* Orange 40 */
+}
+
+#battery.critical:not(.charging) {
+  color: #da1e28; /* Red 60 */
+}
+
+#custom-power {
+  color: #fa4d56; /* Red 50 icon */
+}
+
+#custom-power:hover {
+  background-color: #da1e28;
+  color: #ffffff;
+}
