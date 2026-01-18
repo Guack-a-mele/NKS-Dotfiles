@@ -1,0 +1,2 @@
+# NKS-Dotfiles
+Hyprland Dots 
