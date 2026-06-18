@@ -3,10 +3,16 @@
 ------------------
 -- monitor=,preferred,auto,auto
 hl.monitor({
-    output   = "",
+    output   = "eDP-1",
     mode     = "preferred",
     position = "auto",
     scale    = "auto",
+})
+hl.monitor({
+    output   = "HDMI-A-1",
+    mode     = "1920x1080",
+    position = "-1366x0",
+    scale    = 1,
 })
 
 ---------------------
@@ -23,8 +29,8 @@ local ipc         = "qs -c noctalia-shell ipc call"
 hl.on("hyprland.start", function () 
   hl.exec_cmd("hyprctl setcursor Bibata-Modern-Amber 24")
   hl.exec_cmd("qs -c noctalia-shell")
-  hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd("udiskie")
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland && systemctl --user start hyprland-session.target")
 end)
 
 -------------------------------
@@ -145,7 +151,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. " launcher toggle"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + K", hl.dsp.layout("swapsplit"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("chromium"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium-browser"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
 -- Screenshot & Screen Recording
@@ -201,3 +207,4 @@ hl.device({
     name        = "epic-mouse-v1",
     sensitivity = -0.5,
 })
+
